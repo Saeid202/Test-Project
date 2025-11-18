@@ -1,4 +1,13 @@
-from scraper.normalize import normalize_product
+import sys
+from pathlib import Path
+
+# Allow running this test file directly (conftest isn't loaded when run as a script)
+try:
+    from scraper.normalize import normalize_product
+except ModuleNotFoundError:
+    ROOT = Path(__file__).resolve().parents[1] / "python-product-AIBot"
+    sys.path.insert(0, str(ROOT))
+    from scraper.normalize import normalize_product
 
 
 def test_normalize_with_source():
