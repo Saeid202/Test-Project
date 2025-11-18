@@ -1,6 +1,14 @@
 import types
+import sys
+from pathlib import Path
 
-from scraper.alibaba_scraper import AlibabaScraper
+# Ensure the package is importable when running this file directly
+try:
+    from scraper.alibaba_scraper import AlibabaScraper
+except ModuleNotFoundError:
+    ROOT = Path(__file__).resolve().parents[1] / "python-product-AIBot"
+    sys.path.insert(0, str(ROOT))
+    from scraper.alibaba_scraper import AlibabaScraper
 
 
 class FakeLocator:

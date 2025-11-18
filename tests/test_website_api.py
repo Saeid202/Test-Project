@@ -1,7 +1,7 @@
 import types
 import pytest
 
-import connector.website_api as website_api
+import scraper.connector.website_api as website_api
 
 
 class DummyResponse:
@@ -34,7 +34,7 @@ def test_insert_and_complete(monkeypatch):
         calls.append((url, json))
         return DummyResponse()
 
-    import connector.website_api as wa
+    import scraper.connector.website_api as wa
     monkeypatch.setattr(wa, "requests", types.SimpleNamespace(post=fake_post))
 
     wa.insert_imported_products("job-1", [{"title": "a"}])

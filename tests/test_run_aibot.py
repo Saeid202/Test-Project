@@ -1,7 +1,7 @@
 import builtins
 from types import SimpleNamespace
 
-import connector.website_api as website_api
+import scraper.connector.website_api as website_api
 
 import scraper.connector.run_aibot as run_mod
 

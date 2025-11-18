@@ -1,6 +1,6 @@
 from scraper.alibaba_scraper import AlibabaScraper #from the scraper folder access alibaba_scraper and import he AlibabaScraper class
 from scraper.normalize import normalize_product
-from connector.website_api import (
+from .website_api import (
     start_import_job,
     insert_imported_products,
     complete_import_job
