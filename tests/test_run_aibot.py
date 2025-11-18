@@ -1,9 +1,29 @@
 import builtins
 from types import SimpleNamespace
+import sys
+from pathlib import Path
 
-import scraper.connector.website_api as website_api
-
-import scraper.connector.run_aibot as run_mod
+# Allow running this test file directly (conftest isn't loaded when run as a script)
+try:
+    import scraper.connector.run_aibot as run_mod
+except ModuleNotFoundError:
+    ROOT = Path(__file__).resolve().parents[1] / "python-product-AIBot"
+    sys.path.insert(0, str(ROOT))
+    # If `requests` isn't installed in the environment, provide a minimal stub so
+    # importing `run_aibot` (which imports `website_api`) won't fail.
+    import types
+    import types as _types
+    fake_requests = _types.ModuleType("requests")
+    def _fake_post(*args, **kwargs):
+        class R:
+            def raise_for_status(self):
+                return None
+            def json(self):
+                return {}
+        return R()
+    fake_requests.post = _fake_post
+    sys.modules["requests"] = fake_requests
+    import scraper.connector.run_aibot as run_mod
 
 
 def test_run_bot_happy_path(monkeypatch, capsys):
