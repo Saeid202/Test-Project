@@ -13,8 +13,8 @@ except ModuleNotFoundError:
 
 # Supabase config and insert function (always defined)
 import requests
-SUPABASE_URL = "https://pbkbefdxgskypehrrgvq.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBia2JlZmR4Z3NreXBlaHJyZ3ZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0MjE5NzcsImV4cCI6MjA3ODk5Nzk3N30.r8bq63S5SjYdennWWjN9rWyH_ga15gvwhcZH-yByhW0"
+SUPABASE_URL = "https://ujhdxmtcusbewkfaweeg.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqaGR4bXRjdXNiZXdrZmF3ZWVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2OTQ0MDAsImV4cCI6MjA3ODI3MDQwMH0.w0mD03Vz7Sih0iVfQaIk0MtEV5Dov-fOQAbuYAMMrG0"
 def insert_products_supabase(products):
     url = f"{SUPABASE_URL}/rest/v1/products"
     headers = {
